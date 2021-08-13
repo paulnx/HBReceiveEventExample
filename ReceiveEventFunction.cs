@@ -25,9 +25,7 @@ namespace HBReceiveEventExample
  
          ActionResult actionResponse = new OkResult();
          Dictionary<string, dynamic> returnData = new Dictionary<string, dynamic>();
-
          StringBuilder sbDump = new StringBuilder();
-
          if ("post|put".Contains(req.Method.ToLower()))
          {
             try
@@ -53,7 +51,6 @@ namespace HBReceiveEventExample
                log.LogInformation(sbDump.ToString());
                #endregion
 
-
                #region Transform to CSV and send to https://ptsv2.com/t/random411
                //Example you can transform data and transport elsewhere
                //We morphing to csv and doing an https post to https://ptsv2.com/t/random411/post
@@ -72,7 +69,6 @@ namespace HBReceiveEventExample
                returnData["success"] = true;
                returnData["errormessage"] = string.Empty;
                actionResponse = (ActionResult)new OkObjectResult(returnData);   
-
             }
             catch (Exception e)
             {
@@ -83,14 +79,12 @@ namespace HBReceiveEventExample
 
                log.LogInformation($"Exeception {errormessage}");
             }
-
          }
          else
          {
             returnData["success"] = false;
             returnData["errormessage"] = req.Method + " Method not supported";
             actionResponse = (ActionResult)new BadRequestObjectResult(returnData);
-
          }
          return actionResponse;
       }
