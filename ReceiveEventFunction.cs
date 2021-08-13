@@ -10,6 +10,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 namespace HBReceiveEventExample
 {
+
+
+   /// <summary>
+   /// Example of how to use an Azure function to receive a Hirebridge send event (web hooks)  notification
+   /// </summary>
    public static class ReceiveEventFunction
    {
       [FunctionName("ReceiveEvent")]
