@@ -1,4 +1,4 @@
-﻿# Hirebrdge example of how to receive web hooks/send events
+﻿# Hirebridge example of how to receive web hooks/send events
 Hirebridge example of how to receive send events/web hooks in an Azure Function
 
 clone this project in Visual studios.  You will need the Azure function add on.
