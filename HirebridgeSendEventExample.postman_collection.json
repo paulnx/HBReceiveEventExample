@@ -1,0 +1,33 @@
+{
+	"info": {
+		"_postman_id": "07ed6234-78ba-478e-aa35-45898c9672fd",
+		"name": "HirebridgeSendEventExample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:7071/api/ReceiveEvent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\"companyid\":\"7644\",\"eventtype\":\"Hire\",\"functionid\":null,\"loginfo\":{\"actioncode\":\"60\",\"actionname\":\"CandidateHired\"},\"timestamputc\":\"2021-08-12T19:13:26.4347002Z\",\"payload\":{\"companycode\":\"GY5VY\",\"worklocation\":\"104\",\"jobcode\":\"USACDVMG\",\"joblistid\":\"538163\",\"employeetypecode\":\"REG\",\"orglevel1code\":\"ENT\",\"orglevel2code\":\"203001\",\"orglevel3code\":\"TTINC\",\"orglevel4code\":\"GA\",\"firstname\":\"Test Hire 3\",\"middle\":\"\",\"lastname\":\"Org 1\",\"phone1\":\"+12124441241\",\"email\":\"trintech3@mailinator.com\",\"capplicantid\":\"19034045\",\"addr1\":\"123 4th St.\",\"addr2\":\"\",\"city\":\"New York\",\"state\":\"NY\",\"zipcode\":\"12345\",\"jobreferralsource\":\"10\",\"payfrequency\":\"\",\"salary\":\"123132.00\",\"hourly\":\"31\",\"numhours\":\"86.6\",\"locationcode\":\"104\",\"meta-exempt\":\"True\",\"meta-country\":\"US\",\"meta-paysel\":\"Hourly\",\"meta-hiredate\":\"8/10/2021 12:00:00 AM\",\"meta-startdate\":\"9/1/2021 12:00:00 AM\",\"meta-fulltime\":\"1\"},\"payloadtable\":null}"
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/ReceiveEvent",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"ReceiveEvent"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
