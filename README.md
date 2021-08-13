@@ -1,5 +1,7 @@
-﻿# HBReceiveEventExample
-Hirebridge Example of how to receive send events/web hooks in an Azure Function
-Use postman to post to http://localhost:7071/api/ReceiveEvent  and use the content of  InputExample.json  
-as form body.
-You log output and transmission of of data to https://ptsv2.com/t/random411
+﻿# Hirebrdge example of how to receive web hooks/send events
+Hirebridge example of how to receive send events/web hooks in an Azure Function
+Use postman to post to http://localhost:7071/api/ReceiveEvent    Use the  contents of InputExample.json  
+to simulate a Hirebridge transmitting a webhook event.
+
+
+Data is transformed and transmitted to https://ptsv2.com/t/random411  as an example.
