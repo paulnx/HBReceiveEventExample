@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Specialized;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
 using Newtonsoft.Json;
 namespace HBReceiveEventExample
 {
+
+   public class CaseInSensitiveDictionary<TValue> : Dictionary<string, TValue>
+	{
+		public CaseInSensitiveDictionary() : base(StringComparer.InvariantCultureIgnoreCase) { }
+	}
 	public class HirebridgeEventContainer
 	{
 		public class Loginfo
@@ -19,7 +21,7 @@ namespace HBReceiveEventExample
 		public string functionid { get; set; }
 		public Loginfo loginfo { get; set; }
 		public DateTime timestamputc { get; set; }
-		public Dictionary<string, string> payload { get; set; }
+		public CaseInSensitiveDictionary <string> payload { get; set; }
 		public DataTable payloadtable { get; set; }
 
 		public string GetPayload(string key)
