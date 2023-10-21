@@ -7,4 +7,4 @@ Use postman to post to http://localhost:7071/api/ReceiveEvent    Use the  conten
 to simulate a Hirebridge transmitting a webhook event.  Or import into postman collection HirebridgeSendEventExample.postman_collection.json
 
 
-Data is transformed and transmitted to https://ptsv2.com/t/random411  as an example.
+Data is transformed and transmitted to https://ptsv3.com/t/random411  as an example.

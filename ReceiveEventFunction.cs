@@ -51,20 +51,20 @@ namespace HBReceiveEventExample
                log.LogInformation(sbDump.ToString());
                #endregion
 
-               #region Transform to CSV and send to https://ptsv2.com/t/random411
+               #region Transform to CSV and send to https://ptsv3.com/t/random411
                //Example you can transform data and transport elsewhere
-               //We morphing to csv and doing an https post to https://ptsv2.com/t/random411/post
+               //We morphing to csv and doing an https post to https://ptsv3.com/t/random411/post
                RemoteService rs = new RemoteService();
 
                string csvData = rs.ConvertToCSV(receivedEventHireData.payload);
                log.LogInformation($"We are sending CSV Data....  {csvData}");
-               await rs.SendData("https://ptsv2.com/t/random411/post", csvData);
+               await rs.SendData("https://ptsv3.com/t/random411/post", csvData);
 
-               await rs.SendData("https://ptsv2.com/t/random411/post", sbDump.ToString());
+               await rs.SendData("https://ptsv3.com/t/random411/post", sbDump.ToString());
 
                #endregion
 
-               //View results by going to https://ptsv2.com/t/random411
+               //View results by going to https://ptsv3.com/t/random411
 
                returnData["success"] = true;
                returnData["errormessage"] = string.Empty;
