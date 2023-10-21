@@ -8,6 +8,9 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using System.Xml.Linq;
+
 namespace HBReceiveEventExample
 {
 
@@ -22,6 +25,7 @@ namespace HBReceiveEventExample
         [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
         ILogger log, ExecutionContext context)
       {
+         string urlSend = "http://ptsv3.com/t/random411";
  
          ActionResult actionResponse = new OkResult();
          Dictionary<string, dynamic> returnData = new Dictionary<string, dynamic>();
@@ -51,18 +55,20 @@ namespace HBReceiveEventExample
                log.LogInformation(sbDump.ToString());
                #endregion
 
-               #region Transform to CSV and send to https://ptsv3.com/t/random411
-               //Example you can transform data and transport elsewhere
-               //We morphing to csv and doing an https post to https://ptsv3.com/t/random411/post
-               RemoteService rs = new RemoteService();
+                        
 
+               RemoteService rs = new RemoteService();
                string csvData = rs.ConvertToCSV(receivedEventHireData.payload);
                log.LogInformation($"We are sending CSV Data....  {csvData}");
-               await rs.SendData("https://ptsv3.com/t/random411/post", csvData);
+               await rs.SendData(urlSend, csvData);
 
-               await rs.SendData("https://ptsv3.com/t/random411/post", sbDump.ToString());
+               //Transform to xml and send
+               XNode node = JsonConvert.DeserializeXNode(requestBody, "root");
+               string xml = node.ToString();
+               await rs.SendData(urlSend, xml);
 
-               #endregion
+
+
 
                //View results by going to https://ptsv3.com/t/random411
 
