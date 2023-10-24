@@ -25,7 +25,7 @@ namespace HBReceiveEventExample
         [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
         ILogger log, ExecutionContext context)
       {
-         string urlSend = "http://ptsv3.com/t/random411";
+       
  
          ActionResult actionResponse = new OkResult();
          Dictionary<string, dynamic> returnData = new Dictionary<string, dynamic>();
@@ -60,18 +60,15 @@ namespace HBReceiveEventExample
                RemoteService rs = new RemoteService();
                string csvData = rs.ConvertToCSV(receivedEventHireData.payload);
                log.LogInformation($"We are sending CSV Data....  {csvData}");
-               await rs.SendData(urlSend, csvData);
+               await rs.SendData(csvData);
 
                //Transform to xml and send
                XNode node = JsonConvert.DeserializeXNode(requestBody, "root");
                string xml = node.ToString();
-               await rs.SendData(urlSend, xml);
+               await rs.SendData(xml);
 
 
-
-
-               //View results by going to https://ptsv3.com/t/random411
-
+   
                returnData["success"] = true;
                returnData["errormessage"] = string.Empty;
                actionResponse = (ActionResult)new OkObjectResult(returnData);   
